@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜光杯：丝路瑰宝的数字传承</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0a2463;
+            --secondary: #3e92cc;
+            --accent: #d8315b;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+            --gold: #ffd700;
+            --silver: #6c757d;
+            --background: linear-gradient(135deg, #f0f4f8 0%, #e9ecef 100%);
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--background);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 粒子背景 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        header {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.3);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(10%, 10%) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 1px;
+        }
+        
+        .section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(62, 146, 204, 0.1);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.15);
+        }
+        
+        .section:hover::before {
+            transform: scaleX(1);
+        }
+        
+        h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--secondary);
+            position: relative;
+            letter-spacing: 1px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--secondary);
+            margin: 35px 0 25px;
+            position: relative;
+            padding-left: 25px;
+            letter-spacing: 0.5px;
+        }
+        
+        h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(216, 49, 91, 0.1);
+        }
+        
+        p {
+            margin-bottom: 25px;
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+        
+        /* 时间轴 */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            background: rgba(62, 146, 204, 0.05);
+            padding: 25px 30px 25px 60px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(15px);
+            box-shadow: 0 8px 24px rgba(10, 36, 99, 0.15);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: 0 4px 12px rgba(10, 36, 99, 0.3);
+            z-index: 1;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 34px;
+            top: calc(50% + 20px);
+            width: 2px;
+            height: calc(100% - 20px);
+            background: linear-gradient(to bottom, var(--secondary), var(--silver));
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-item h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        /* 数据来源卡片 */
+        .data-source {
+            background: linear-gradient(135deg, rgba(62, 146, 204, 0.05), rgba(10, 36, 99, 0.05));
+            border-left: 5px solid var(--primary);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 0 16px 16px 0;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .data-source:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(10, 36, 99, 0.15);
+        }
+        
+        .data-source h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* 可视化设计 */
+        .visualization {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin: 40px 0;
+        }
+        
+        .vis-item {
+            background: linear-gradient(135deg, #ffffff, rgba(62, 146, 204, 0.05));
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(62, 146, 204, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vis-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.1), transparent);
+            border-radius: 0 0 0 120px;
+        }
+        
+        .vis-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 40px rgba(10, 36, 99, 0.18);
+            border-color: var(--secondary);
+        }
+        
+        .vis-item h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .vis-item p {
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+        
+        .vis-item ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .vis-item li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        /* 参考作品 */
+        .reference {
+            background: linear-gradient(135deg, rgba(62, 146, 204, 0.05), rgba(10, 36, 99, 0.05));
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reference::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .reference:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(10, 36, 99, 0.15);
+        }
+        
+        .reference h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .reference-image {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(62, 146, 204, 0.1);
+        }
+        
+        .reference-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            transition: var(--transition);
+            transform: scale(1);
+        }
+        
+        .reference-image:hover img {
+            transform: scale(1.08);
+        }
+        
+        .reference-image:hover {
+            box-shadow: 0 16px 40px rgba(10, 36, 99, 0.18);
+        }
+        
+        /* 可行性分析 */
+        .feasibility {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feasibility-item {
+            background: linear-gradient(135deg, #ffffff, rgba(62, 146, 204, 0.05));
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(62, 146, 204, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feasibility-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(10, 36, 99, 0.05) 0%, transparent 70%);
+            transition: var(--transition);
+        }
+        
+        .feasibility-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 16px 40px rgba(10, 36, 99, 0.15);
+            border-color: var(--secondary);
+        }
+        
+        .feasibility-item:hover::before {
+            transform: translate(50%, 50%);
+        }
+        
+        .feasibility-item h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feasibility-item p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 初步效果 */
+        .preliminary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 24px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .preliminary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 12s ease-in-out infinite;
+        }
+        
+        .preliminary h3 {
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .preliminary h3::before {
+            background: var(--gold);
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.2);
+        }
+        
+        .preliminary p {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .glow {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 30px rgba(49, 130, 206, 0.5);
+            }
+            to {
+                box-shadow: 0 0 50px rgba(49, 130, 206, 0.8);
+            }
+        }
+        
+        /* 实施计划 */
+        .plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .plan-item {
+            background: linear-gradient(135deg, #ffffff, rgba(62, 146, 204, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.1), transparent);
+            border-radius: 0 0 0 100px;
+        }
+        
+        .plan-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(10, 36, 99, 0.15);
+            border-left-color: var(--accent);
+        }
+        
+        .plan-item h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .plan-item p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--silver);
+            margin-top: 80px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(62, 146, 204, 0.05), rgba(10, 36, 99, 0.05));
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 1.8em;
+            }
+            
+            h3 {
+                font-size: 1.4em;
+            }
+            
+            .visualization,
+            .feasibility,
+            .plan {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                padding-left: 40px;
+            }
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- 粒子背景 -->
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="container">
+        <!-- 播放控制按钮 -->
+        <div style="position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px;">
+            <button id="playBtn" style="padding: 10px 20px; background: var(--accent); color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3); transition: var(--transition);">
+                ▶ 播放
+            </button>
+            <button id="pauseBtn" style="padding: 10px 20px; background: var(--silver); color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 12px rgba(113, 128, 150, 0.3); transition: var(--transition);">
+                ⏸ 暂停
+            </button>
+        </div>
+        
+        <header class="glow">
+            <h1>夜光杯：丝路瑰宝的数字传承</h1>
+            <p class="subtitle">学科竞赛策划案</p>
+        </header>
+        
+        <!-- 目录导航 -->
+        <nav class="section" style="margin-bottom: 30px;">
+            <h2>目录</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <a href="#background" style="display: block; padding: 15px; background: var(--light); border-radius: 10px; text-decoration: none; color: var(--primary); transition: var(--transition); text-align: center;">
+                    <strong>一、背景与价值</strong>
+                </a>
+                <a href="#data" style="display: block; padding: 15px; background: var(--light); border-radius: 10px; text-decoration: none; color: var(--primary); transition: var(--transition); text-align: center;">
+                    <strong>二、数据来源与处理方案</strong>
+                </a>
+                <a href="#visualization" style="display: block; padding: 15px; background: var(--light); border-radius: 10px; text-decoration: none; color: var(--primary); transition: var(--transition); text-align: center;">
+                    <strong>三、可视化设计思路</strong>
+                </a>
+                <a href="#reference" style="display: block; padding: 15px; background: var(--light); border-radius: 10px; text-decoration: none; color: var(--primary); transition: var(--transition); text-align: center;">
+                    <strong>四、同类可参考作品</strong>
+                </a>
+                <a href="#feasibility" style="display: block; padding: 15px; background: var(--light); border-radius: 10px; text-decoration: none; color: var(--primary); transition: var(--transition); text-align: center;">
+                    <strong>五、可行性及计划</strong>
+                </a>
+                <a href="#effect" style="display: block; padding: 15px; background: var(--light); border-radius: 10px; text-decoration: none; color: var(--primary); transition: var(--transition); text-align: center;">
+                    <strong>六、初步效果</strong>
+                </a>
+            </div>
+        </nav>
+        
+        <section class="section" id="background">
+            <h2>一、背景与价值</h2>
+            
+            <!-- 夜光杯图片 -->
+            <div class="reference-image" style="margin-bottom: 30px;">
+                <img src="https://img.alicdn.com/imgextra/i3/2216953104899/O1CN01k7vJ9g1Xxq7w0Pp25_!!2216953104899.jpg" alt="夜光杯实物图">
+                <p style="text-align: center; margin-top: 10px; color: var(--silver); font-style: italic;">夜光杯实物图：采用祁连山玉石制作，工艺精湛</p>
+            </div>
+            
+            <h3>背景</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>西周时期（公元前七世纪）</h4>
+                    <p>西域小国向周穆王进贡夜光常满杯，成为夜光杯的起源</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>唐代</h4>
+                    <p>诗人王翰《凉州词》中"葡萄美酒夜光杯"名句使夜光杯名扬天下</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>明末清初</h4>
+                    <p>夜光杯生产进入兴盛期，酒泉有十多家玉石作坊制作夜光杯</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2006年</h4>
+                    <p>酒泉夜光杯雕被列入第一批国家级非物质文化遗产代表性项目名录</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2016年</h4>
+                    <p>"酒泉夜光杯"被批准为国家地理标志产品</p>
+                </div>
+            </div>
+            
+            <h3>价值</h3>
+            <div class="feasibility">
+                <div class="feasibility-item">
+                    <h4>历史价值</h4>
+                    <p>见证了丝绸之路的商贸往来和文化交流</p>
+                </div>
+                <div class="feasibility-item">
+                    <h4>艺术价值</h4>
+                    <p>融合了玉石工艺与饮酒文化，体现了中国传统美学</p>
+                </div>
+                <div class="feasibility-item">
+                    <h4>工艺价值</h4>
+                    <p>38道复杂工序，展现了传统手工艺的精湛技艺</p>
+                </div>
+                <div class="feasibility-item">
+                    <h4>文化价值</h4>
+                    <p>承载了河西走廊的历史记忆和文化传承</p>
+                </div>
+                <div class="feasibility-item">
+                    <h4>经济价值</h4>
+                    <p>成为当地特色产业，促进文化旅游发展</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="data">
+            <h2>二、数据来源与处理方案</h2>
+            
+            <!-- 数据可视化图片 -->
+            <div class="reference-image" style="margin-bottom: 30px;">
+                <img src="https://img.alicdn.com/imgextra/i2/2216953104899/O1CN01Z7q7fW1Xxq7uY3c3p_!!2216953104899.jpg" alt="数据可视化示例">
+                <p style="text-align: center; margin-top: 10px; color: var(--silver); font-style: italic;">数据可视化示例：展示夜光杯产业相关数据</p>
+            </div>
+            
+            <h3>数据来源</h3>
+            <div class="data-source">
+                <h4>1. 文化遗产数据</h4>
+                <p>• 中国非物质文化遗产网（项目编号：Ⅶ-31）：包含夜光杯雕的详细申报资料、保护计划和传承情况</p>
+                <p>• 国家地理标志产品保护信息：夜光杯的地理标志认证文件、质量标准和生产规范</p>
+                <p>• 甘肃省文化和旅游厅官方资料：关于夜光杯的保护政策、产业发展规划和文化推广活动</p>
+                <p>• 酒泉市人民政府官方网站：夜光杯产业发展数据和政策支持措施</p>
+            </div>
+            
+            <div class="data-source">
+                <h4>2. 历史文献数据</h4>
+                <p>• 《十洲记》《穆天子传》等古代文献：关于夜光杯起源的历史记载</p>
+                <p>• 唐代诗歌及历史典籍：如王翰《凉州词》等提及夜光杯的文学作品</p>
+                <p>• 地方史志资料：《酒泉府志》《肃州志》等地方文献中关于夜光杯的记载</p>
+                <p>• 考古发掘报告：河西走廊地区与夜光杯相关的考古发现</p>
+            </div>
+            
+            <div class="data-source">
+                <h4>3. 工艺数据</h4>
+                <p>• 酒泉夜光杯厂工艺流程资料：38道制作工序的详细说明和技术参数</p>
+                <p>• 非遗传承人口述历史：工艺传承故事、技术秘诀和经验总结</p>
+                <p>• 制作工序视频资料：从选料到成品的完整制作过程记录</p>
+                <p>• 工艺工具和设备数据：传统工具的规格、使用方法和现代设备的应用</p>
+            </div>
+            
+            <div class="data-source">
+                <h4>4. 现代数据</h4>
+                <p>• 生产数据：2023年年产量12万件，30%出口至"一带一路"沿线国家</p>
+                <p>• 市场销售数据：国内销售网络分布、国际市场拓展情况和销售额统计</p>
+                <p>• 用户反馈数据：消费者对不同系列产品的评价和需求分析</p>
+                <p>• 文创产品开发情况：近年来开发的新款式、新用途和市场反应</p>
+                <p>• 旅游数据：夜光杯作为旅游纪念品的销售情况和游客反馈</p>
+            </div>
+            
+            <h3>处理方案</h3>
+            <div class="visualization">
+                <div class="vis-item">
+                    <h4>1. 数据收集</h4>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>官方渠道：通过政府网站、非遗保护中心等官方机构获取权威数据</li>
+                        <li>实地调研：前往酒泉夜光杯厂进行实地考察，拍摄制作过程</li>
+                        <li>文献查阅：搜集相关历史文献和学术研究资料</li>
+                        <li>专家访谈：与非遗传承人、工艺大师进行深度访谈</li>
+                        <li>市场调研：收集市场销售数据和用户反馈</li>
+                    </ul>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>2. 数据整理</h4>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>分类归档：将数据按历史、工艺、市场等类别进行分类</li>
+                        <li>数据清洗：去除重复和无效数据，确保数据质量</li>
+                        <li>验证核实：通过多方渠道验证数据的真实性和准确性</li>
+                        <li>标准化处理：统一数据格式和计量单位，便于后续分析</li>
+                    </ul>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>3. 数据可视化</h4>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>时间序列数据：使用折线图展示产量、销售额等随时间的变化</li>
+                        <li>地理分布数据：使用地图可视化展示原料产地、销售网络等</li>
+                        <li>工艺流程数据：使用流程图展示制作工序的先后顺序和关系</li>
+                        <li>市场分析数据：使用饼图、柱状图展示市场份额和用户偏好</li>
+                        <li>三维数据：使用3D模型展示夜光杯的造型和结构</li>
+                    </ul>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>4. 数据更新</h4>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>建立数据采集机制：定期从官方渠道获取最新数据</li>
+                        <li>设置数据更新周期：根据数据类型确定更新频率</li>
+                        <li>建立数据备份系统：确保数据安全和可追溯性</li>
+                        <li>开发数据管理界面：方便团队成员查看和更新数据</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="visualization">
+            <h2>三、可视化设计思路</h2>
+            
+            <!-- 3D模型展示图片 -->
+            <div class="reference-image" style="margin-bottom: 30px;">
+                <img src="https://img.alicdn.com/imgextra/i1/2216953104899/O1CN01Lw0q8q1Xxq7sQ8j6b_!!2216953104899.jpg" alt="3D模型展示">
+                <p style="text-align: center; margin-top: 10px; color: var(--silver); font-style: italic;">3D模型展示：交互式查看夜光杯的造型和细节</p>
+            </div>
+            
+            <div class="visualization">
+                <div class="vis-item">
+                    <h4>1. 历史时间轴</h4>
+                    <p><strong>设计目标：</strong>通过交互式时间轴直观展示夜光杯的发展历程，突出重要历史节点和文化事件</p>
+                    <p><strong>技术实现：</strong>使用HTML5 Canvas或SVG绘制时间轴，结合JavaScript实现交互效果</p>
+                    <p><strong>功能特点：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>可拖动时间轴，查看不同历史时期</li>
+                        <li>点击时间节点显示详细历史事件</li>
+                        <li>融入历史图片和文献资料</li>
+                        <li>支持时间轴缩放功能</li>
+                    </ul>
+                    <p><strong>预期效果：</strong>用户可以清晰了解夜光杯从西周至今的发展脉络，感受其历史文化价值</p>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>2. 工艺流程</h4>
+                    <p><strong>设计目标：</strong>动态展示夜光杯38道制作工序，突出传统工艺的复杂性和精湛技艺</p>
+                    <p><strong>技术实现：</strong>使用CSS动画和JavaScript实现工序流程的动态展示</p>
+                    <p><strong>功能特点：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>分阶段展示制作工序，每道工序配有详细说明</li>
+                        <li>融入制作过程的视频片段</li>
+                        <li>支持工序间的跳转和回溯</li>
+                        <li>展示关键工序的技术要点</li>
+                    </ul>
+                    <p><strong>预期效果：</strong>用户可以直观了解夜光杯的制作过程，感受传统工艺的魅力</p>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>3. 3D模型展示</h4>
+                    <p><strong>设计目标：</strong>构建夜光杯的高精度3D模型，支持多角度查看，展示其造型和纹理细节</p>
+                    <p><strong>技术实现：</strong>使用Three.js或Babylon.js构建3D模型，实现交互控制</p>
+                    <p><strong>功能特点：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>支持360°旋转查看</li>
+                        <li>可缩放模型，查看细节</li>
+                        <li>展示不同种类夜光杯的3D模型</li>
+                        <li>融入材质和光影效果，增强真实感</li>
+                    </ul>
+                    <p><strong>预期效果：</strong>用户可以全方位了解夜光杯的造型设计和工艺细节</p>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>4. 文化地图</h4>
+                    <p><strong>设计目标：</strong>基于GIS技术，展示夜光杯的原料产地、制作中心和销售网络，呈现其文化传播路线</p>
+                    <p><strong>技术实现：</strong>使用Leaflet或Mapbox等地图库，结合自定义图层</p>
+                    <p><strong>功能特点：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>标记祁连山玉矿产地</li>
+                        <li>展示夜光杯制作中心分布</li>
+                        <li>呈现销售网络和文化传播路线</li>
+                        <li>支持地图缩放和区域筛选</li>
+                    </ul>
+                    <p><strong>预期效果：</strong>用户可以直观了解夜光杯的地理分布和文化传播范围</p>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>5. 数据仪表盘</h4>
+                    <p><strong>设计目标：</strong>展示夜光杯的生产、销售和市场数据，支持交互式查询和分析</p>
+                    <p><strong>技术实现：</strong>使用Chart.js、ECharts等图表库，结合前端框架实现</p>
+                    <p><strong>功能特点：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>产量趋势图表</li>
+                        <li>市场分布饼图</li>
+                        <li>销售数据柱状图</li>
+                        <li>支持数据筛选和时间范围选择</li>
+                    </ul>
+                    <p><strong>预期效果：</strong>用户可以通过数据直观了解夜光杯产业的发展状况</p>
+                </div>
+                
+                <div class="vis-item">
+                    <h4>6. 虚拟现实体验</h4>
+                    <p><strong>设计目标：</strong>通过VR技术，让用户沉浸式体验夜光杯的制作过程和文化内涵</p>
+                    <p><strong>技术实现：</strong>使用A-Frame或Three.js VR模块，结合WebVR API</p>
+                    <p><strong>功能特点：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 10px;">
+                        <li>虚拟参观夜光杯制作车间</li>
+                        <li>模拟体验部分制作工序</li>
+                        <li>360°全景展示制作环境</li>
+                        <li>融入音频解说和背景音乐</li>
+                    </ul>
+                    <p><strong>预期效果：</strong>用户可以获得身临其境的体验，深入了解夜光杯的制作工艺和文化背景</p>
+                </div>
+            </div>
+            
+            <h3>技术实现</h3>
+            <div class="data-source">
+                <h4>前端技术栈</h4>
+                <p>• HTML5：构建页面结构和语义化标签</p>
+                <p>• CSS3：实现响应式布局和视觉效果</p>
+                <p>• JavaScript：实现交互功能和数据处理</p>
+                <p>• Three.js：构建3D模型和VR体验</p>
+                <p>• Chart.js/ECharts：实现数据可视化图表</p>
+                <p>• Leaflet/Mapbox：实现地理信息可视化</p>
+            </div>
+            
+            <div class="data-source">
+                <h4>设计原则</h4>
+                <p>• 移动优先：确保在手机、平板等移动设备上的良好体验</p>
+                <p>• 交互友好：设计直观的用户界面和交互方式</p>
+                <p>• 视觉统一：保持整体设计风格的一致性</p>
+                <p>• 性能优化：确保页面加载速度和交互响应速度</p>
+                <p>• 可访问性：确保不同用户群体都能正常使用</p>
+            </div>
+            
+            <div class="data-source">
+                <h4>实现步骤</h4>
+                <p>1. 需求分析：确定核心功能和用户需求</p>
+                <p>2. 原型设计：制作页面原型和交互流程图</p>
+                <p>3. 数据准备：收集和整理所需数据</p>
+                <p>4. 前端开发：实现页面结构和基本样式</p>
+                <p>5. 功能开发：实现各个可视化模块和交互功能</p>
+                <p>6. 测试优化：进行功能测试和性能优化</p>
+                <p>7. 部署发布：准备竞赛提交材料</p>
+            </div>
+        </section>
+        
+        <section class="section" id="reference">
+            <h2>四、同类可参考作品（重点分析）</h2>
+            
+            <!-- 参考作品展示图片 -->
+            <div class="reference-image" style="margin-bottom: 30px;">
+                <img src="https://img.alicdn.com/imgextra/i4/2216953104899/O1CN01v7a0nZ1Xxq7t7k2w2_!!2216953104899.jpg" alt="参考作品展示">
+                <p style="text-align: center; margin-top: 10px; color: var(--silver); font-style: italic;">参考作品展示：传统工艺数字化可视化案例</p>
+            </div>
+            
+            <div class="reference">
+                <h4>1. 《解构天章-中国古代天文学大数据视觉图谱》（呼伦贝尔学院）</h4>
+                <p><strong>获奖情况：</strong>中国大学生计算机设计大赛获奖作品</p>
+                <div class="reference-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20Chinese%20astronomy%20data%20visualization%20with%20celestial%20instruments%20and%20planet%20charts%2C%20modern%20digital%20design%2C%20traditional%20Chinese%20style&image_size=landscape_16_9" alt="《解构天章-中国古代天文学大数据视觉图谱》作品展示">
+                </div>
+                <p><strong>作品内容：</strong>融合科学与艺术的可视化作品，以中国古代天文学智慧为基础，结合当代国家空间科学发展战略进行设计与创作。</p>
+                <p><strong>设计特点：</strong>
+                    • 四大模块：人物著作篇、天文仪器篇、行星篇、天文历法篇<br>
+                    • 信息呈现：通过信息图形、数据对比与动效叙事，直观展现中国天文学在历史与未来的传承与创新<br>
+                    • 技术实现：引入真实的天体比例与运转数据，制作八大行星与太阳的等比例动画，以及浑天仪等古代仪器的动态演示<br>
+                    • 视觉效果：所有素材均为原创，部分参考古籍文献进行高还原度绘制，既体现历史的厚重感，又展现现代设计的审美与科技感
+                </p>
+                <p><strong>参考价值：</strong>多模块信息架构设计和动效叙事的思路，可应用于夜光杯的历史文化展示</p>
+            </div>
+            
+            <div class="reference">
+                <h4>2. 《汝瓷制作工艺可视化设计》（广州城市理工学院）</h4>
+                <p><strong>获奖情况：</strong>中国大学生计算机设计大赛全国一等奖</p>
+                <div class="reference-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ru%20porcelain%20making%20process%20visualization%20with%20traditional%20craft%20steps%2C%20celadon%20glaze%20colors%2C%20modern%20infographic%20design&image_size=landscape_16_9" alt="《汝瓷制作工艺可视化设计》作品展示">
+                </div>
+                <p><strong>作品内容：</strong>运用现代信息可视化技术，整合汝瓷历史、工艺、艺术、文化等多维度数据，通过精妙交互设计、清晰数据图表和东方美学视觉呈现，多维度展现汝瓷魅力。</p>
+                <p><strong>设计特点：</strong>
+                    • 工艺展示：涵盖开采、淘石等十大制作工序，解析胎釉热胀冷缩差异形成蝉翼纹等独特开片的原理<br>
+                    • 视觉呈现：以天青色为主的釉色、多样开片纹理及瓶、杯托等丰富器型的可视化展示<br>
+                    • 交互设计：通过精妙的交互设计，让用户可以探索汝瓷的制作过程和文化内涵<br>
+                    • 数据整合：整合历史、工艺、艺术、文化等多维度数据，构建完整的汝瓷知识体系
+                </p>
+                <p><strong>参考价值：</strong>其多维度数据整合和交互设计思路可应用于夜光杯项目</p>
+            </div>
+            
+            <div class="reference">
+                <h4>3. 《凭起落，定风波》（华东师范大学）</h4>
+                <p><strong>获奖情况：</strong>中国大学生计算机设计大赛全国一等奖</p>
+                <div class="reference-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=traditional%20Chinese%20poetry%20visualization%20for%20education%2C%20modern%20digital%20design%20with%20classical%20elements%2C%20interactive%20learning%20interface&image_size=landscape_16_9" alt="《凭起落，定风波》作品展示">
+                </div>
+                <p><strong>作品内容：</strong>以《定风波·莫听穿林打叶声》为教学内容，将“以美育人”理念与数字化技术深度融合，针对初中生由形象思维向抽象思维过渡的认知特点，引导学生深入体悟古诗词之美。</p>
+                <p><strong>设计特点：</strong>
+                    • 教学内容：以《定风波·莫听穿林打叶声》为核心，结合新课标中“文化自信”核心素养<br>
+                    • 技术应用：运用即梦、可灵、Suno、Runway、Vidu等六类AIGC工具，丰富表现形式<br>
+                    • 学习体验：为学生带来全新的学习体验，帮助学生理解古诗词中的文化基因与精神标识<br>
+                    • 教育理念：将“以美育人”理念与数字化技术深度融合，实现“以文化人”的教育目标
+                </p>
+                <p><strong>参考价值：</strong>传统文化与现代技术融合的设计思路，可应用于夜光杯文化内涵的展示</p>
+            </div>
+            
+            <div class="reference">
+                <h4>4. 《沙海遗珍 -- 敦煌文化数字转译》（黄山学院）</h4>
+                <p><strong>获奖情况：</strong>中国大学生计算机设计大赛国赛三等奖</p>
+                <div class="reference-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=dunhuang%20culture%20digital%20visualization%20with%20traditional%20mural%20elements%2C%20modern%20infographic%20design%2C%20international%20perspective&image_size=landscape_16_9" alt="《沙海遗珍 -- 敦煌文化数字转译》作品展示">
+                </div>
+                <p><strong>作品内容：</strong>以国际生“汉学”信息可视化设计作品形式，通过数字化手段展现敦煌文化的历史价值和艺术魅力，实现传统文化的现代转译。</p>
+                <p><strong>设计特点：</strong>
+                    • 文化转译：通过数字化手段将敦煌文化的历史价值和艺术魅力转化为现代可理解的形式<br>
+                    • 国际视角：以国际生“汉学”作品形式，面向国际受众传播敦煌文化<br>
+                    • 信息可视化：运用信息可视化技术，清晰呈现敦煌文化的历史脉络和艺术特色<br>
+                    • 现代传播：通过现代数字技术，使传统文化在当代得到更广泛的传播
+                </p>
+                <p><strong>参考价值：</strong>传统文化数字化转译的设计思路，可应用于夜光杯文化的现代传播</p>
+            </div>
+        </section>
+        
+        <section class="section" id="feasibility">
+            <h2>五、可行性及计划</h2>
+            
+            <!-- 可行性分析图片 -->
+            <div class="reference-image" style="margin-bottom: 30px;">
+                <img src="https://img.alicdn.com/imgextra/i3/2216953104899/O1CN01c7vJ9g1Xxq7w0Pp25_!!2216953104899.jpg" alt="可行性分析">
+                <p style="text-align: center; margin-top: 10px; color: var(--silver); font-style: italic;">可行性分析：项目实施计划和时间安排</p>
+            </div>
+            
+            <h3>可行性分析</h3>
+            <div class="feasibility">
+                <div class="feasibility-item">
+                    <h4>技术可行性</h4>
+                    <p>运用HTML5、CSS3、JavaScript等前端技术，结合Three.js实现3D效果，技术成熟可行</p>
+                </div>
+                <div class="feasibility-item">
+                    <h4>数据可行性</h4>
+                    <p>已有丰富的历史文献和现代数据支持，数据收集和处理方案明确</p>
+                </div>
+                <div class="feasibility-item">
+                    <h4>资源可行性</h4>
+                    <p>可利用学校实验室设备和软件资源，团队成员具备相关技术能力</p>
+                </div>
+
+            </div>
+            
+            <h3>实施计划</h3>
+            <div class="plan">
+                <div class="plan-item">
+                    <h4>第1-2周</h4>
+                    <p>需求分析与数据收集，确定项目目标，收集相关数据和资料</p>
+                </div>
+                <div class="plan-item">
+                    <h4>第3-4周</h4>
+                    <p>设计与原型开发，完成H5页面设计，开发交互原型</p>
+                </div>
+                <div class="plan-item">
+                    <h4>第5-8周</h4>
+                    <p>功能开发与测试，实现各项功能模块，进行测试和优化</p>
+                </div>
+                <div class="plan-item">
+                    <h4>第9-10周</h4>
+                    <p>完善与提交，完善细节，准备竞赛提交材料</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="effect">
+            <h2>六、初步效果</h2>
+            
+            <!-- 初步效果展示图片 -->
+            <div class="reference-image" style="margin-bottom: 30px;">
+                <img src="https://img.alicdn.com/imgextra/i2/2216953104899/O1CN01Z7q7fW1Xxq7uY3c3p_!!2216953104899.jpg" alt="初步效果展示">
+                <p style="text-align: center; margin-top: 10px; color: var(--silver); font-style: italic;">初步效果展示：交互式H5页面设计效果</p>
+            </div>
+            
+            <div class="preliminary glow">
+                <h3>预期效果</h3>
+                <div class="visualization">
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">1. 页面效果</h4>
+                        <p>打造一个集历史文化、工艺展示、数据可视化于一体的交互式H5页面</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">2. 视觉效果</h4>
+                        <p>通过3D模型和动态效果，直观展示夜光杯的制作工艺和文化内涵</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">3. 交互效果</h4>
+                        <p>运用现代设计手法，呈现传统工艺的现代魅力</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">4. 用户体验</h4>
+                        <p>为用户提供沉浸式的文化体验，增强对非物质文化遗产的认知</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">5. 竞赛优势</h4>
+                        <p>符合学科竞赛的要求，展现团队的创新能力和技术水平</p>
+                    </div>
+                </div>
+                
+                <h3>创新点</h3>
+                <div class="visualization">
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">多维度数据整合</h4>
+                        <p>融合历史、工艺、文化等多方面数据</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">沉浸式体验</h4>
+                        <p>通过3D和VR技术提供全新的文化体验方式</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">跨学科融合</h4>
+                        <p>结合计算机技术、设计艺术和文化研究</p>
+                    </div>
+                    <div class="vis-item" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                        <h4 style="color: white;">社会价值</h4>
+                        <p>促进非物质文化遗产的保护和传承</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 河西走廊夜光杯学科竞赛策划案</p>
+        </footer>
+    </div>
+    
+    <!-- 粒子效果脚本 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 初始化粒子效果
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#3182ce'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#3182ce',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+        
+        // 滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            const images = document.querySelectorAll('.reference-image');
+            const cards = document.querySelectorAll('.vis-item, .feasibility-item, .plan-item, .data-source');
+            const headings = document.querySelectorAll('h2, h3');
+            
+            // 初始化样式
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            images.forEach(image => {
+                image.style.opacity = '0';
+                image.style.transform = 'scale(0.8)';
+                image.style.transition = 'opacity 1s ease, transform 1s ease';
+            });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            headings.forEach(heading => {
+                heading.style.opacity = '0';
+                heading.style.transform = 'translateX(-30px)';
+                heading.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            function checkScroll() {
+                // 处理section动画
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+                
+                // 处理图片动画
+                images.forEach(image => {
+                    const imageTop = image.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (imageTop < windowHeight * 0.7) {
+                        image.style.opacity = '1';
+                        image.style.transform = 'scale(1)';
+                    }
+                });
+                
+                // 处理卡片动画
+                cards.forEach((card, index) => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight * 0.7) {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+                
+                // 处理标题动画
+                headings.forEach(heading => {
+                    const headingTop = heading.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (headingTop < windowHeight * 0.8) {
+                        heading.style.opacity = '1';
+                        heading.style.transform = 'translateX(0)';
+                    }
+                });
+            }
+            
+            // 检查滚动
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // 初始检查
+            
+            // 为目录添加点击动画
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 4px 12px rgba(49, 130, 206, 0.3)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // 为卡片添加悬停动画
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.boxShadow = '0 12px 32px rgba(49, 130, 206, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.05)';
+                });
+            });
+            
+            // 为图片添加悬停效果
+            images.forEach(image => {
+                image.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                image.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+        
+        // 自动播放功能
+        let isPlaying = false;
+        let playInterval;
+        let currentSectionIndex = 0;
+        const sections = document.querySelectorAll('.section');
+        
+        document.getElementById('playBtn').addEventListener('click', function() {
+            if (!isPlaying) {
+                isPlaying = true;
+                this.innerHTML = '▶ 播放中';
+                this.style.background = 'var(--gold)';
+                startAutoPlay();
+            }
+        });
+        
+        document.getElementById('pauseBtn').addEventListener('click', function() {
+            if (isPlaying) {
+                isPlaying = false;
+                document.getElementById('playBtn').innerHTML = '▶ 播放';
+                document.getElementById('playBtn').style.background = 'var(--accent)';
+                clearInterval(playInterval);
+            }
+        });
+        
+        function startAutoPlay() {
+            // 重置到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // 等待1秒后开始播放
+            setTimeout(() => {
+                currentSectionIndex = 0;
+                playInterval = setInterval(() => {
+                    if (currentSectionIndex < sections.length) {
+                        // 滚动到当前章节
+                        sections[currentSectionIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        currentSectionIndex++;
+                    } else {
+                        // 播放结束，重置
+                        clearInterval(playInterval);
+                        isPlaying = false;
+                        document.getElementById('playBtn').innerHTML = '▶ 播放';
+                        document.getElementById('playBtn').style.background = 'var(--accent)';
+                    }
+                }, 5000); // 每个章节停留5秒
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
