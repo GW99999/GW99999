@@ -3,68 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript基础知识练习</title>
+    <title>JavaScript基础知识练习 - 专业版</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
             line-height: 1.6;
-        }
-        .exercise {
-            margin: 20px 0;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        h2 {
             color: #333;
         }
-        .result {
-            background-color: #f5f5f5;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 3px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        header {
+            background-color: #4a6fa5;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        main {
+            padding: 30px;
+        }
+        .exercise {
+            margin: 30px 0;
+            padding: 25px;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .exercise h2 {
+            color: #4a6fa5;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #4a6fa5;
+            padding-bottom: 10px;
+        }
+        .exercise h3 {
+            color: #6c757d;
+            margin: 15px 0 10px;
+            font-size: 1.2em;
+        }
+        .exercise p {
+            margin-bottom: 15px;
+        }
+        .controls {
+            margin: 20px 0;
         }
         button {
-            margin: 5px;
-            padding: 8px 15px;
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3a5a8a;
+        }
+        button.secondary {
+            background-color: #6c757d;
+        }
+        button.secondary:hover {
+            background-color: #5a6268;
+        }
+        .result {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #4a6fa5;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .test-pass {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .test-fail {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e1e5e9;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section-title {
+            font-size: 1.3em;
+            color: #4a6fa5;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .feature-list {
+            list-style-type: none;
+            margin: 15px 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4a6fa5;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e1e5e9;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>JavaScript基础知识练习</h1>
+    <div class="container">
+        <header>
+            <h1>JavaScript基础知识练习</h1>
+            <p class="subtitle">专业版 - 全面测试JavaScript核心概念</p>
+        </header>
+        
+        <main>
+            <section class="section">
+                <h2 class="section-title">练习内容概览</h2>
+                <ul class="feature-list">
+                    <li>变量定义与类型</li>
+                    <li>表达式与运算符</li>
+                    <li>流程控制语句</li>
+                    <li>函数与作用域</li>
+                    <li>数组操作与方法</li>
+                    <li>对象操作与方法</li>
+                    <li>字符串操作与方法</li>
+                    <li>异常处理</li>
+                    <li>ES6+特性</li>
+                </ul>
+            </section>
 
-    <!-- 变量定义与类型练习 -->
-    <div class="exercise">
-        <h2>1. 变量定义与类型</h2>
-        <p>点击按钮查看变量定义与类型练习结果：</p>
-        <button onclick="variablePractice()">执行变量练习</button>
-        <div id="variableResult" class="result"></div>
-    </div>
+            <!-- 变量定义与类型练习 -->
+            <div class="exercise">
+                <h2>1. 变量定义与类型</h2>
+                <p>测试变量声明、类型转换和类型检查</p>
+                <div class="controls">
+                    <button onclick="variablePractice()">执行变量练习</button>
+                    <button onclick="typeConversionPractice()" class="secondary">执行类型转换练习</button>
+                </div>
+                <div id="variableResult" class="result"></div>
+                <div id="typeConversionResult" class="result"></div>
+            </div>
 
-    <!-- 表达式练习 -->
-    <div class="exercise">
-        <h2>2. 表达式练习</h2>
-        <p>点击按钮查看表达式练习结果：</p>
-        <button onclick="expressionPractice()">执行表达式练习</button>
-        <div id="expressionResult" class="result"></div>
-    </div>
+            <!-- 表达式练习 -->
+            <div class="exercise">
+                <h2>2. 表达式与运算符</h2>
+                <p>测试算术、比较、逻辑和赋值运算符</p>
+                <div class="controls">
+                    <button onclick="expressionPractice()">执行表达式练习</button>
+                </div>
+                <div id="expressionResult" class="result"></div>
+            </div>
 
-    <!-- 流程控制练习 -->
-    <div class="exercise">
-        <h2>3. 流程控制练习</h2>
-        <p>点击按钮查看流程控制练习结果：</p>
-        <button onclick="controlFlowPractice()">执行流程控制练习</button>
-        <div id="controlFlowResult" class="result"></div>
-    </div>
+            <!-- 流程控制练习 -->
+            <div class="exercise">
+                <h2>3. 流程控制语句</h2>
+                <p>测试if-else、switch、循环语句和三元运算符</p>
+                <div class="controls">
+                    <button onclick="controlFlowPractice()">执行流程控制练习</button>
+                </div>
+                <div id="controlFlowResult" class="result"></div>
+            </div>
 
-    <!-- 函数练习 -->
-    <div class="exercise">
-        <h2>4. 函数练习</h2>
-        <p>点击按钮查看函数练习结果：</p>
-        <button onclick="functionPractice()">执行函数练习</button>
-        <div id="functionResult" class="result"></div>
+            <!-- 函数练习 -->
+            <div class="exercise">
+                <h2>4. 函数与作用域</h2>
+                <p>测试函数定义、作用域、闭包和箭头函数</p>
+                <div class="controls">
+                    <button onclick="functionPractice()">执行函数练习</button>
+                    <button onclick="scopePractice()" class="secondary">执行作用域练习</button>
+                </div>
+                <div id="functionResult" class="result"></div>
+                <div id="scopeResult" class="result"></div>
+            </div>
+
+            <!-- 数组练习 -->
+            <div class="exercise">
+                <h2>5. 数组操作</h2>
+                <p>测试数组创建、方法和操作</p>
+                <div class="controls">
+                    <button onclick="arrayPractice()">执行数组练习</button>
+                </div>
+                <div id="arrayResult" class="result"></div>
+            </div>
+
+            <!-- 对象练习 -->
+            <div class="exercise">
+                <h2>6. 对象操作</h2>
+                <p>测试对象创建、属性操作和方法</p>
+                <div class="controls">
+                    <button onclick="objectPractice()">执行对象练习</button>
+                </div>
+                <div id="objectResult" class="result"></div>
+            </div>
+
+            <!-- 字符串练习 -->
+            <div class="exercise">
+                <h2>7. 字符串操作</h2>
+                <p>测试字符串方法和操作</p>
+                <div class="input-group">
+                    <label for="stringInput">输入字符串：</label>
+                    <input type="text" id="stringInput" value="Hello, JavaScript!">
+                </div>
+                <div class="controls">
+                    <button onclick="stringPractice()">执行字符串练习</button>
+                </div>
+                <div id="stringResult" class="result"></div>
+            </div>
+
+            <!-- 异常处理练习 -->
+            <div class="exercise">
+                <h2>8. 异常处理</h2>
+                <p>测试try-catch-finally和错误处理</p>
+                <div class="controls">
+                    <button onclick="exceptionPractice()">执行异常处理练习</button>
+                </div>
+                <div id="exceptionResult" class="result"></div>
+            </div>
+
+            <!-- ES6+特性练习 -->
+            <div class="exercise">
+                <h2>9. ES6+特性</h2>
+                <p>测试ES6及以上版本的新特性</p>
+                <div class="controls">
+                    <button onclick="es6Practice()">执行ES6+练习</button>
+                </div>
+                <div id="es6Result" class="result"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>JavaScript基础知识练习 - 专业版 &copy; 2026</p>
+        </footer>
     </div>
 
     <script>
@@ -83,6 +316,8 @@
             };
             let nothing = null;
             let undefinedVar;
+            let symbolVar = Symbol("unique");
+            let bigIntVar = BigInt(9007199254740991);
 
             // 变量类型
             let result = "变量定义与类型练习结果：\n";
@@ -94,29 +329,97 @@
             result += "person: " + JSON.stringify(person) + " (类型: " + typeof person + ")\n";
             result += "nothing: " + nothing + " (类型: " + typeof nothing + ")\n";
             result += "undefinedVar: " + undefinedVar + " (类型: " + typeof undefinedVar + ")\n";
+            result += "symbolVar: " + symbolVar + " (类型: " + typeof symbolVar + ")\n";
+            result += "bigIntVar: " + bigIntVar + " (类型: " + typeof bigIntVar + ")\n";
 
             document.getElementById("variableResult").textContent = result;
+        }
+
+        // 类型转换练习
+        function typeConversionPractice() {
+            let num = 42;
+            let str = "123";
+            let bool = true;
+            let obj = { value: 100 };
+
+            let result = "类型转换练习结果：\n";
+            
+            // 显式类型转换
+            result += "显式类型转换：\n";
+            result += "Number(\"123\") = " + Number("123") + "\n";
+            result += "String(42) = " + String(42) + "\n";
+            result += "Boolean(0) = " + Boolean(0) + "\n";
+            result += "Boolean(\"\") = " + Boolean("") + "\n";
+            result += "Boolean(null) = " + Boolean(null) + "\n";
+            result += "Boolean(undefined) = " + Boolean(undefined) + "\n";
+            result += "Boolean({}) = " + Boolean({}) + "\n";
+            result += "Boolean([]) = " + Boolean([]) + "\n";
+
+            // 隐式类型转换
+            result += "\n隐式类型转换：\n";
+            result += "42 + \"10\" = " + (42 + "10") + "\n";
+            result += "\"10\" - 5 = " + ("10" - 5) + "\n";
+            result += "true + 1 = " + (true + 1) + "\n";
+            result += "false + 1 = " + (false + 1) + "\n";
+            result += "null + 1 = " + (null + 1) + "\n";
+            result += "undefined + 1 = " + (undefined + 1) + "\n";
+
+            document.getElementById("typeConversionResult").textContent = result;
         }
 
         // 2. 表达式练习
         function expressionPractice() {
             let a = 10;
             let b = 5;
+            let c = 3;
 
-            let result = "表达式练习结果：\n";
+            let result = "表达式与运算符练习结果：\n";
+            
+            // 算术运算符
+            result += "算术运算符：\n";
             result += "a + b = " + (a + b) + "\n";
             result += "a - b = " + (a - b) + "\n";
             result += "a * b = " + (a * b) + "\n";
             result += "a / b = " + (a / b) + "\n";
             result += "a % b = " + (a % b) + "\n";
-            result += "a++ = " + (a++) + " (执行后a = " + a + ")\n";
-            result += "++a = " + (++a) + " (执行后a = " + a + ")\n";
-            result += "b-- = " + (b--) + " (执行后b = " + b + ")\n";
-            result += "--b = " + (--b) + " (执行后b = " + b + ")\n";
+            result += "a ** c = " + (a ** c) + "\n";
+
+            // 自增自减运算符
+            result += "\n自增自减运算符：\n";
+            let x = 5;
+            let y = 5;
+            result += "x++ = " + (x++) + " (执行后x = " + x + ")\n";
+            result += "++y = " + (++y) + " (执行后y = " + y + ")\n";
+
+            // 比较运算符
+            result += "\n比较运算符：\n";
             result += "a > b = " + (a > b) + "\n";
+            result += "a < b = " + (a < b) + "\n";
+            result += "a >= b = " + (a >= b) + "\n";
+            result += "a <= b = " + (a <= b) + "\n";
+            result += "a == b = " + (a == b) + "\n";
             result += "a === b = " + (a === b) + "\n";
+            result += "a != b = " + (a != b) + "\n";
+            result += "a !== b = " + (a !== b) + "\n";
+
+            // 逻辑运算符
+            result += "\n逻辑运算符：\n";
             result += "a && b = " + (a && b) + "\n";
             result += "a || b = " + (a || b) + "\n";
+            result += "!a = " + (!a) + "\n";
+
+            // 赋值运算符
+            result += "\n赋值运算符：\n";
+            let z = 10;
+            result += "z = " + z + "\n";
+            z += 5;
+            result += "z += 5 = " + z + "\n";
+            z *= 2;
+            result += "z *= 2 = " + z + "\n";
+
+            // 三元运算符
+            result += "\n三元运算符：\n";
+            result += "a > b ? 'a大于b' : 'a小于等于b' = " + (a > b ? 'a大于b' : 'a小于等于b') + "\n";
 
             document.getElementById("expressionResult").textContent = result;
         }
@@ -151,14 +454,41 @@
                 case 3:
                     result += "星期三\n";
                     break;
+                case 4:
+                    result += "星期四\n";
+                    break;
+                case 5:
+                    result += "星期五\n";
+                    break;
+                case 6:
+                    result += "星期六\n";
+                    break;
+                case 7:
+                    result += "星期日\n";
+                    break;
                 default:
-                    result += "其他天\n";
+                    result += "无效的日期\n";
             }
 
             // for 循环
-            result += "\nfor 循环练习（1-5）：\n";
-            for (let i = 1; i <= 5; i++) {
+            result += "\nfor 循环练习（1-10）：\n";
+            for (let i = 1; i <= 10; i++) {
                 result += i + " ";
+            }
+            result += "\n";
+
+            // for-in 循环
+            result += "\nfor-in 循环练习：\n";
+            let person = { name: "张三", age: 25, job: "学生" };
+            for (let key in person) {
+                result += key + ": " + person[key] + "\n";
+            }
+
+            // for-of 循环
+            result += "\nfor-of 循环练习：\n";
+            let fruits = ["苹果", "香蕉", "橙子"];
+            for (let fruit of fruits) {
+                result += fruit + " ";
             }
             result += "\n";
 
@@ -168,6 +498,31 @@
             while (j <= 5) {
                 result += j + " ";
                 j++;
+            }
+            result += "\n";
+
+            // do-while 循环
+            result += "\ndo-while 循环练习（1-5）：\n";
+            let k = 1;
+            do {
+                result += k + " ";
+                k++;
+            } while (k <= 5);
+            result += "\n";
+
+            // 循环控制语句
+            result += "\n循环控制语句练习：\n";
+            result += "break 语句示例（1-10，遇到5停止）：\n";
+            for (let i = 1; i <= 10; i++) {
+                if (i === 5) break;
+                result += i + " ";
+            }
+            result += "\n";
+
+            result += "continue 语句示例（1-10，跳过5）：\n";
+            for (let i = 1; i <= 10; i++) {
+                if (i === 5) continue;
+                result += i + " ";
             }
             result += "\n";
 
@@ -195,13 +550,436 @@
                 return n * factorial(n - 1);
             }
 
+            // 带默认参数的函数
+            function greet(name = "陌生人") {
+                return `Hello, ${name}!`;
+            }
+
+            // 剩余参数
+            function sum(...numbers) {
+                return numbers.reduce((total, num) => total + num, 0);
+            }
+
             let result = "函数练习结果：\n";
             result += "add(5, 3) = " + add(5, 3) + "\n";
             result += "multiply(4, 6) = " + multiply(4, 6) + "\n";
             result += "subtract(10, 4) = " + subtract(10, 4) + "\n";
             result += "factorial(5) = " + factorial(5) + "\n";
+            result += "greet() = " + greet() + "\n";
+            result += "greet('张三') = " + greet('张三') + "\n";
+            result += "sum(1, 2, 3, 4, 5) = " + sum(1, 2, 3, 4, 5) + "\n";
 
             document.getElementById("functionResult").textContent = result;
+        }
+
+        // 作用域练习
+        function scopePractice() {
+            // 全局变量
+            let globalVar = "全局变量";
+
+            function outerFunction() {
+                // 局部变量
+                let outerVar = "外部函数变量";
+
+                function innerFunction() {
+                    // 局部变量
+                    let innerVar = "内部函数变量";
+                    return `${globalVar}, ${outerVar}, ${innerVar}`;
+                }
+
+                return innerFunction();
+            }
+
+            // 闭包示例
+            function createCounter() {
+                let count = 0;
+                return function() {
+                    return ++count;
+                };
+            }
+
+            const counter = createCounter();
+
+            let result = "作用域练习结果：\n";
+            result += "全局变量: " + globalVar + "\n";
+            result += "内部函数访问外部变量: " + outerFunction() + "\n";
+            result += "闭包计数器 - 第一次调用: " + counter() + "\n";
+            result += "闭包计数器 - 第二次调用: " + counter() + "\n";
+            result += "闭包计数器 - 第三次调用: " + counter() + "\n";
+
+            // var 与 let/const 的区别
+            result += "\nvar 与 let/const 的区别：\n";
+            if (true) {
+                var varVariable = "var 变量";
+                let letVariable = "let 变量";
+                const constVariable = "const 变量";
+            }
+            result += "var 变量在块外可访问: " + varVariable + "\n";
+            try {
+                result += "let 变量在块外可访问: " + letVariable + "\n";
+            } catch (e) {
+                result += "let 变量在块外不可访问: " + e.message + "\n";
+            }
+            try {
+                result += "const 变量在块外可访问: " + constVariable + "\n";
+            } catch (e) {
+                result += "const 变量在块外不可访问: " + e.message + "\n";
+            }
+
+            document.getElementById("scopeResult").textContent = result;
+        }
+
+        // 5. 数组练习
+        function arrayPractice() {
+            // 创建数组
+            let fruits = ["苹果", "香蕉", "橙子"];
+            let numbers = [1, 2, 3, 4, 5];
+
+            let result = "数组练习结果：\n";
+            result += "原始数组 fruits: " + fruits + "\n";
+            result += "原始数组 numbers: " + numbers + "\n";
+
+            // 数组方法
+            result += "\n数组方法练习：\n";
+
+            // push - 添加元素到末尾
+            fruits.push("葡萄");
+            result += "fruits.push('葡萄'): " + fruits + "\n";
+
+            // pop - 移除末尾元素
+            let lastFruit = fruits.pop();
+            result += "fruits.pop(): " + lastFruit + " (数组变为: " + fruits + ")\n";
+
+            // unshift - 添加元素到开头
+            fruits.unshift("草莓");
+            result += "fruits.unshift('草莓'): " + fruits + "\n";
+
+            // shift - 移除开头元素
+            let firstFruit = fruits.shift();
+            result += "fruits.shift(): " + firstFruit + " (数组变为: " + fruits + ")\n";
+
+            // slice - 截取数组
+            let slicedNumbers = numbers.slice(1, 4);
+            result += "numbers.slice(1, 4): " + slicedNumbers + " (原数组: " + numbers + ")\n";
+
+            // splice - 删除/添加元素
+            let removed = numbers.splice(1, 2, 10, 20);
+            result += "numbers.splice(1, 2, 10, 20): 移除 " + removed + " (数组变为: " + numbers + ")\n";
+
+            // concat - 合并数组
+            let combined = fruits.concat(["梨", "桃"]);
+            result += "fruits.concat(['梨', '桃']): " + combined + "\n";
+
+            // indexOf - 查找元素
+            let index = fruits.indexOf("香蕉");
+            result += "fruits.indexOf('香蕉'): " + index + "\n";
+
+            // includes - 检查元素是否存在
+            let hasOrange = fruits.includes("橙子");
+            result += "fruits.includes('橙子'): " + hasOrange + "\n";
+
+            // forEach - 遍历数组
+            result += "\nforEach 遍历 fruits: ";
+            fruits.forEach(fruit => {
+                result += fruit + " ";
+            });
+            result += "\n";
+
+            // map - 映射数组
+            let doubledNumbers = numbers.map(num => num * 2);
+            result += "numbers.map(num => num * 2): " + doubledNumbers + "\n";
+
+            // filter - 过滤数组
+            let evenNumbers = doubledNumbers.filter(num => num % 2 === 0);
+            result += "doubledNumbers.filter(num => num % 2 === 0): " + evenNumbers + "\n";
+
+            // reduce - 归约数组
+            let sum = numbers.reduce((total, num) => total + num, 0);
+            result += "numbers.reduce((total, num) => total + num, 0): " + sum + "\n";
+
+            // sort - 排序数组
+            let unsorted = [3, 1, 4, 1, 5, 9, 2, 6];
+            let sorted = [...unsorted].sort((a, b) => a - b);
+            result += "[3, 1, 4, 1, 5, 9, 2, 6].sort((a, b) => a - b): " + sorted + "\n";
+
+            document.getElementById("arrayResult").textContent = result;
+        }
+
+        // 6. 对象练习
+        function objectPractice() {
+            // 创建对象
+            let person = {
+                name: "张三",
+                age: 25,
+                job: "工程师",
+                greet: function() {
+                    return `Hello, my name is ${this.name}.`;
+                }
+            };
+
+            let result = "对象练习结果：\n";
+            result += "原始对象: " + JSON.stringify(person) + "\n";
+
+            // 访问属性
+            result += "\n访问属性：\n";
+            result += "person.name: " + person.name + "\n";
+            result += "person['age']: " + person['age'] + "\n";
+
+            // 修改属性
+            person.age = 26;
+            result += "\n修改属性：\n";
+            result += "person.age = 26: " + JSON.stringify(person) + "\n";
+
+            // 添加属性
+            person.email = "zhangsan@example.com";
+            result += "\n添加属性：\n";
+            result += "person.email = 'zhangsan@example.com': " + JSON.stringify(person) + "\n";
+
+            // 删除属性
+            delete person.job;
+            result += "\n删除属性：\n";
+            result += "delete person.job: " + JSON.stringify(person) + "\n";
+
+            // 调用方法
+            result += "\n调用方法：\n";
+            result += "person.greet(): " + person.greet() + "\n";
+
+            // 检查属性是否存在
+            result += "\n检查属性是否存在：\n";
+            result += "'name' in person: " + ('name' in person) + "\n";
+            result += "'job' in person: " + ('job' in person) + "\n";
+
+            // 获取对象键、值、键值对
+            result += "\n获取对象键、值、键值对：\n";
+            result += "Object.keys(person): " + Object.keys(person) + "\n";
+            result += "Object.values(person): " + Object.values(person) + "\n";
+            result += "Object.entries(person): " + JSON.stringify(Object.entries(person)) + "\n";
+
+            // 复制对象
+            let personCopy = Object.assign({}, person);
+            result += "\n复制对象：\n";
+            result += "Object.assign({}, person): " + JSON.stringify(personCopy) + "\n";
+
+            // 解构对象
+            result += "\n解构对象：\n";
+            const { name, age } = person;
+            result += "const { name, age } = person: name = " + name + ", age = " + age + "\n";
+
+            // 对象方法简写
+            const newPerson = {
+                name: "李四",
+                age: 30,
+                greet() {
+                    return `Hello, my name is ${this.name}.`;
+                }
+            };
+            result += "\n对象方法简写：\n";
+            result += "newPerson.greet(): " + newPerson.greet() + "\n";
+
+            document.getElementById("objectResult").textContent = result;
+        }
+
+        // 7. 字符串练习
+        function stringPractice() {
+            let input = document.getElementById("stringInput").value;
+            let str = input || "Hello, JavaScript!";
+
+            let result = "字符串练习结果：\n";
+            result += "原始字符串: " + str + "\n";
+
+            // 字符串长度
+            result += "\n字符串长度: " + str.length + "\n";
+
+            // 访问字符
+            result += "\n访问字符：\n";
+            result += "str[0]: " + str[0] + "\n";
+            result += "str.charAt(7): " + str.charAt(7) + "\n";
+
+            // 字符串方法
+            result += "\n字符串方法：\n";
+            
+            // toUpperCase/toLowerCase
+            result += "str.toUpperCase(): " + str.toUpperCase() + "\n";
+            result += "str.toLowerCase(): " + str.toLowerCase() + "\n";
+
+            // indexOf/lastIndexOf
+            result += "str.indexOf('a'): " + str.indexOf('a') + "\n";
+            result += "str.lastIndexOf('a'): " + str.lastIndexOf('a') + "\n";
+
+            // slice
+            result += "str.slice(7): " + str.slice(7) + "\n";
+            result += "str.slice(7, 18): " + str.slice(7, 18) + "\n";
+
+            // substring
+            result += "str.substring(7, 18): " + str.substring(7, 18) + "\n";
+
+            // substr
+            result += "str.substr(7, 11): " + str.substr(7, 11) + "\n";
+
+            // replace
+            result += "str.replace('JavaScript', 'World'): " + str.replace('JavaScript', 'World') + "\n";
+
+            // split
+            result += "str.split(' '): " + str.split(' ') + "\n";
+
+            // trim
+            let strWithSpaces = "   Hello, JavaScript!   ";
+            result += "'   Hello, JavaScript!   '.trim(): " + strWithSpaces.trim() + "\n";
+
+            // includes
+            result += "str.includes('JavaScript'): " + str.includes('JavaScript') + "\n";
+
+            // startsWith/endsWith
+            result += "str.startsWith('Hello'): " + str.startsWith('Hello') + "\n";
+            result += "str.endsWith('!'): " + str.endsWith('!') + "\n";
+
+            // repeat
+            result += "'Hello '.repeat(3): " + 'Hello '.repeat(3) + "\n";
+
+            // 模板字符串
+            let name = "张三";
+            let age = 25;
+            result += "\n模板字符串：\n";
+            result += `Hello, my name is ${name} and I am ${age} years old.` + "\n";
+
+            document.getElementById("stringResult").textContent = result;
+        }
+
+        // 8. 异常处理练习
+        function exceptionPractice() {
+            let result = "异常处理练习结果：\n";
+
+            // try-catch 示例
+            result += "try-catch 示例：\n";
+            try {
+                let undefinedVar;
+                result += undefinedVar.toString();
+            } catch (error) {
+                result += "捕获到异常: " + error.message + "\n";
+            }
+
+            // 自定义异常
+            result += "\n自定义异常：\n";
+            try {
+                throw new Error("这是一个自定义异常");
+            } catch (error) {
+                result += "捕获到自定义异常: " + error.message + "\n";
+            }
+
+            // finally 块
+            result += "\nfinally 块示例：\n";
+            try {
+                result += "执行 try 块\n";
+                throw new Error("测试异常");
+            } catch (error) {
+                result += "执行 catch 块: " + error.message + "\n";
+            } finally {
+                result += "执行 finally 块\n";
+            }
+
+            // 错误类型
+            result += "\n错误类型示例：\n";
+            
+            try {
+                let obj = null;
+                obj.method();
+            } catch (error) {
+                result += "TypeError: " + error.message + "\n";
+            }
+
+            try {
+                eval("function() {}");
+            } catch (error) {
+                result += "SyntaxError: " + error.message + "\n";
+            }
+
+            try {
+                let arr = new Array(-1);
+            } catch (error) {
+                result += "RangeError: " + error.message + "\n";
+            }
+
+            document.getElementById("exceptionResult").textContent = result;
+        }
+
+        // 9. ES6+特性练习
+        function es6Practice() {
+            let result = "ES6+特性练习结果：\n";
+
+            // let 和 const
+            result += "let 和 const：\n";
+            let mutable = "可变";
+            const immutable = "不可变";
+            mutable = "已修改";
+            result += "let 变量: " + mutable + "\n";
+            result += "const 变量: " + immutable + "\n";
+
+            // 箭头函数
+            result += "\n箭头函数：\n";
+            const add = (a, b) => a + b;
+            result += "add(5, 3): " + add(5, 3) + "\n";
+
+            // 模板字符串
+            result += "\n模板字符串：\n";
+            let name = "张三";
+            let age = 25;
+            result += `Hello, ${name}! You are ${age} years old.` + "\n";
+
+            // 解构赋值
+            result += "\n解构赋值：\n";
+            const [x, y, z] = [1, 2, 3];
+            result += `x: ${x}, y: ${y}, z: ${z}` + "\n";
+
+            const { firstName, lastName } = { firstName: "张", lastName: "三" };
+            result += `firstName: ${firstName}, lastName: ${lastName}` + "\n";
+
+            // 扩展运算符
+            result += "\n扩展运算符：\n";
+            const arr1 = [1, 2, 3];
+            const arr2 = [4, 5, 6];
+            const combined = [...arr1, ...arr2];
+            result += "[...arr1, ...arr2]: " + combined + "\n";
+
+            const obj1 = { a: 1, b: 2 };
+            const obj2 = { b: 3, c: 4 };
+            const merged = { ...obj1, ...obj2 };
+            result += "{ ...obj1, ...obj2 }: " + JSON.stringify(merged) + "\n";
+
+            // 剩余参数
+            result += "\n剩余参数：\n";
+            function sum(...numbers) {
+                return numbers.reduce((total, num) => total + num, 0);
+            }
+            result += "sum(1, 2, 3, 4, 5): " + sum(1, 2, 3, 4, 5) + "\n";
+
+            // 默认参数
+            result += "\n默认参数：\n";
+            function greet(name = "陌生人") {
+                return `Hello, ${name}!`;
+            }
+            result += "greet(): " + greet() + "\n";
+            result += "greet('张三'): " + greet('张三') + "\n";
+
+            // 类
+            result += "\n类：\n";
+            class Person {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                greet() {
+                    return `Hello, my name is ${this.name}.`;
+                }
+            }
+            const person = new Person("张三", 25);
+            result += "person.greet(): " + person.greet() + "\n";
+
+            // 模块导入导出（模拟）
+            result += "\n模块导入导出（模拟）：\n";
+            result += "// import { add } from './math.js'\n";
+            result += "// export const multiply = (a, b) => a * b\n";
+
+            document.getElementById("es6Result").textContent = result;
         }
     </script>
 </body>
