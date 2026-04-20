@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript基础知识练习</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .exercise {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+        .result {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript基础知识练习</h1>
+
+    <!-- 变量定义与类型练习 -->
+    <div class="exercise">
+        <h2>1. 变量定义与类型</h2>
+        <p>点击按钮查看变量定义与类型练习结果：</p>
+        <button onclick="variablePractice()">执行变量练习</button>
+        <div id="variableResult" class="result"></div>
+    </div>
+
+    <!-- 表达式练习 -->
+    <div class="exercise">
+        <h2>2. 表达式练习</h2>
+        <p>点击按钮查看表达式练习结果：</p>
+        <button onclick="expressionPractice()">执行表达式练习</button>
+        <div id="expressionResult" class="result"></div>
+    </div>
+
+    <!-- 流程控制练习 -->
+    <div class="exercise">
+        <h2>3. 流程控制练习</h2>
+        <p>点击按钮查看流程控制练习结果：</p>
+        <button onclick="controlFlowPractice()">执行流程控制练习</button>
+        <div id="controlFlowResult" class="result"></div>
+    </div>
+
+    <!-- 函数练习 -->
+    <div class="exercise">
+        <h2>4. 函数练习</h2>
+        <p>点击按钮查看函数练习结果：</p>
+        <button onclick="functionPractice()">执行函数练习</button>
+        <div id="functionResult" class="result"></div>
+    </div>
+
+    <script>
+        // 1. 变量定义与类型练习
+        function variablePractice() {
+            // 变量定义
+            let name = "张三";
+            const age = 25;
+            var isStudent = true;
+            let height = 1.75;
+            let hobbies = ["阅读", "运动", "编程"];
+            let person = {
+                name: "李四",
+                age: 30,
+                job: "工程师"
+            };
+            let nothing = null;
+            let undefinedVar;
+
+            // 变量类型
+            let result = "变量定义与类型练习结果：\n";
+            result += "name: " + name + " (类型: " + typeof name + ")\n";
+            result += "age: " + age + " (类型: " + typeof age + ")\n";
+            result += "isStudent: " + isStudent + " (类型: " + typeof isStudent + ")\n";
+            result += "height: " + height + " (类型: " + typeof height + ")\n";
+            result += "hobbies: " + hobbies + " (类型: " + typeof hobbies + ")\n";
+            result += "person: " + JSON.stringify(person) + " (类型: " + typeof person + ")\n";
+            result += "nothing: " + nothing + " (类型: " + typeof nothing + ")\n";
+            result += "undefinedVar: " + undefinedVar + " (类型: " + typeof undefinedVar + ")\n";
+
+            document.getElementById("variableResult").textContent = result;
+        }
+
+        // 2. 表达式练习
+        function expressionPractice() {
+            let a = 10;
+            let b = 5;
+
+            let result = "表达式练习结果：\n";
+            result += "a + b = " + (a + b) + "\n";
+            result += "a - b = " + (a - b) + "\n";
+            result += "a * b = " + (a * b) + "\n";
+            result += "a / b = " + (a / b) + "\n";
+            result += "a % b = " + (a % b) + "\n";
+            result += "a++ = " + (a++) + " (执行后a = " + a + ")\n";
+            result += "++a = " + (++a) + " (执行后a = " + a + ")\n";
+            result += "b-- = " + (b--) + " (执行后b = " + b + ")\n";
+            result += "--b = " + (--b) + " (执行后b = " + b + ")\n";
+            result += "a > b = " + (a > b) + "\n";
+            result += "a === b = " + (a === b) + "\n";
+            result += "a && b = " + (a && b) + "\n";
+            result += "a || b = " + (a || b) + "\n";
+
+            document.getElementById("expressionResult").textContent = result;
+        }
+
+        // 3. 流程控制练习
+        function controlFlowPractice() {
+            let result = "流程控制练习结果：\n";
+
+            // if-else 语句
+            let score = 85;
+            result += "if-else 语句练习：\n";
+            if (score >= 90) {
+                result += "成绩优秀\n";
+            } else if (score >= 80) {
+                result += "成绩良好\n";
+            } else if (score >= 60) {
+                result += "成绩及格\n";
+            } else {
+                result += "成绩不及格\n";
+            }
+
+            // switch 语句
+            let day = 3;
+            result += "\nswitch 语句练习：\n";
+            switch (day) {
+                case 1:
+                    result += "星期一\n";
+                    break;
+                case 2:
+                    result += "星期二\n";
+                    break;
+                case 3:
+                    result += "星期三\n";
+                    break;
+                default:
+                    result += "其他天\n";
+            }
+
+            // for 循环
+            result += "\nfor 循环练习（1-5）：\n";
+            for (let i = 1; i <= 5; i++) {
+                result += i + " ";
+            }
+            result += "\n";
+
+            // while 循环
+            result += "\nwhile 循环练习（1-5）：\n";
+            let j = 1;
+            while (j <= 5) {
+                result += j + " ";
+                j++;
+            }
+            result += "\n";
+
+            document.getElementById("controlFlowResult").textContent = result;
+        }
+
+        // 4. 函数练习
+        function functionPractice() {
+            // 函数定义
+            function add(a, b) {
+                return a + b;
+            }
+
+            // 箭头函数
+            const multiply = (a, b) => a * b;
+
+            // 函数表达式
+            const subtract = function(a, b) {
+                return a - b;
+            };
+
+            // 递归函数
+            function factorial(n) {
+                if (n <= 1) return 1;
+                return n * factorial(n - 1);
+            }
+
+            let result = "函数练习结果：\n";
+            result += "add(5, 3) = " + add(5, 3) + "\n";
+            result += "multiply(4, 6) = " + multiply(4, 6) + "\n";
+            result += "subtract(10, 4) = " + subtract(10, 4) + "\n";
+            result += "factorial(5) = " + factorial(5) + "\n";
+
+            document.getElementById("functionResult").textContent = result;
+        }
+    </script>
+</body>
+</html>
